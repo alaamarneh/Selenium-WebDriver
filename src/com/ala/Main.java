@@ -12,8 +12,12 @@ import java.util.List;
 
 public class Main {
 
+    private static WebDriver driver;
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\ALa\\Desktop\\selenium\\chromedriver.exe");
+        driver = new ChromeDriver();
+
+
 
         List<Grade> grades = new ArrayList<>();
         grades.add(new Grade("A",3));
@@ -42,7 +46,7 @@ public class Main {
 
     static class TestCase{
         static boolean TestGPA(List<Grade> grades, double resultExpected){
-            WebDriver driver= new ChromeDriver();
+
             driver.get("https://www.un-web.com/tools/aauj/?action=FirstYear");
                 for (int i=0;i<grades.size();i++){
 
@@ -59,7 +63,7 @@ public class Main {
             String resultString = driver.findElement(By.cssSelector("span.result"))
                     .getText().trim()
                     .split(" ")[0];
-            driver.quit();
+//            driver.quit();
             double resultDouble = Double.parseDouble(resultString);
             System.out.println("result from website="+resultDouble);
 
