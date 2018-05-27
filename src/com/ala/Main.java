@@ -13,7 +13,7 @@ import java.util.List;
 public class Main {
 
     private static WebDriver driver;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\ALa\\Desktop\\selenium\\chromedriver.exe");
         driver = new ChromeDriver();
 
@@ -45,7 +45,7 @@ public class Main {
     }
 
     static class TestCase{
-        static boolean TestGPA(List<Grade> grades, double resultExpected){
+        static boolean TestGPA(List<Grade> grades, double resultExpected) throws Exception{
 
             driver.get("https://www.un-web.com/tools/aauj/?action=FirstYear");
                 for (int i=0;i<grades.size();i++){
@@ -56,6 +56,8 @@ public class Main {
 
                     WebElement elementHours = driver.findElement(By.name("h" + (i+1)));
                     elementHours.sendKeys(grades.get(i).getHours() + "");
+
+                    Thread.sleep(500);
             }
 
             driver.findElement(By.name("B1")).submit();
