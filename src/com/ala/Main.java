@@ -28,12 +28,12 @@ public class Main {
                 );
 
 
-        if(TestCase.Test(grades,3.455))
+        if(TestCase.TestGPA(grades,3.455))
             System.out.println("Test success");
         else
             System.out.println("Test Failed");
 
-        if(TestCase.Test(grades2,3.1))
+        if(TestCase.TestGPA(grades2,3.1))
             System.out.println("Test success");
         else
             System.out.println("Test Failed");
@@ -41,7 +41,7 @@ public class Main {
     }
 
     static class TestCase{
-        static boolean Test(List<Grade> grades, double resultExpected){
+        static boolean TestGPA(List<Grade> grades, double resultExpected){
             WebDriver driver= new ChromeDriver();
             driver.get("https://www.un-web.com/tools/aauj/?action=FirstYear");
                 for (int i=0;i<grades.size();i++){

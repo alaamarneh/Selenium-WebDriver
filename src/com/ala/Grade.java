@@ -9,20 +9,8 @@ public class Grade {
         this.hours = hours;
     }
 
-    public String getGrade() {
-
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
+    public String getGrade() {return grade;}
     public int getHours() {
         return hours;
-    }
-
-    public void setHours(int hours) {
-        this.hours = hours;
     }
 }
